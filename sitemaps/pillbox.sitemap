@@ -1,0 +1,19 @@
+sitemap pillbox label="Pillbox Dashboard" {
+    Frame label="System Status" {
+        Text item=Buzzer_Node_Status valuecolor=[ON="green", OFF="red"]
+        Text item=Sensor_Node_Status valuecolor=[ON="green", OFF="red"]
+    }
+
+    Frame label="Actuator Node" {
+        Switch item=Buzzer_Node_Red_Light label="Red Light"
+        Switch item=Buzzer_Node_Green_Light label="Green Light"
+        Switch item=Buzzer_Node_Blue_Light label="Blue Warning Light"
+        Switch item=Buzzer_Node_Buzzer_Alarm label="Buzzer"
+    }
+    Frame label="Sensor Node" {
+        Switch item=Sensor_Node_Touch_Sensor label="Touch Sensor"
+    }
+    Frame label="Environment Data" {
+        Text item=Vienna_Temp
+    }
+}

@@ -1,0 +1,8 @@
+Switch Buzzer_Node_Red_Light "Red Light [%s]" { channel="mqtt:topic:mosquitto:Buzzer_Node:red_led" }
+Switch Buzzer_Node_Green_Light "Green Light [%s]" { channel="mqtt:topic:mosquitto:Buzzer_Node:green_led" }
+Switch Buzzer_Node_Blue_Light "Blue Light [%s]" { channel="mqtt:topic:mosquitto:Buzzer_Node:blue_led" }
+Switch Buzzer_Node_Buzzer_Alarm "Buzzer Alarm [%s]" { channel="mqtt:topic:mosquitto:Buzzer_Node:buzzer_pin" }
+Switch Sensor_Node_Touch_Sensor "Touch Sensor" { channel="mqtt:topic:mosquitto:Sensor_Node:touch_sensor" }
+Number Vienna_Temp "Vienna Temperature [%.1f °C]" <temperature> { channel="http:url:vienna_weather:temperature" }
+Switch Buzzer_Node_Status "Buzzer Node Status" <network> { channel="network:pingdevice:buzzer_node:online" }
+Switch Sensor_Node_Status "Sensor Node Status" <network> { channel="network:pingdevice:sensor_node:online" }

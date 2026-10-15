@@ -1,0 +1,9 @@
+Strategies {
+    every5Minutes : "0 0/5 * * * ?"
+    default = everyChange
+}
+
+Items {
+    Vienna_Temp : strategy = everyChange, every5Minutes
+    Sensor_Node_Touch_Sensor : strategy = everyChange
+}

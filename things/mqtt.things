@@ -1,0 +1,15 @@
+Bridge mqtt:broker:mosquitto [ host="localhost", secure=false, username="openhab", password="pillbox123" ] {
+    
+    Thing topic Buzzer_Node "Buzzer Node" {
+    Channels:
+        Type switch : red_led "Red Light" [ stateTopic="stat/pillbox_actuator/POWER1", commandTopic="cmnd/pillbox_actuator/POWER1", on="ON", off="OFF" ]
+        Type switch : green_led "Green Light" [ stateTopic="stat/pillbox_actuator/POWER2", commandTopic="cmnd/pillbox_actuator/POWER2", on="ON", off="OFF" ]
+        Type switch : blue_led "Blue Light" [ stateTopic="stat/pillbox_actuator/POWER3", commandTopic="cmnd/pillbox_actuator/POWER3" ]
+        Type switch : buzzer_pin "Buzzer" [ stateTopic="stat/pillbox_actuator/POWER4", commandTopic="cmnd/pillbox_actuator/POWER4" ]
+    }
+
+    Thing topic Sensor_Node "Sensor Node" {
+    Channels:
+        Type switch : touch_sensor "Touch Sensor" [ stateTopic="stat/sensor_node/POWER" ]
+    }
+}

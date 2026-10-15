@@ -1,0 +1,10 @@
+sitemap pillbox_analytics label="Pillbox Analytics" {
+    Frame label="Environmental Data" {
+        Text item=Vienna_Temp label="Current Temperature - Vienna [%.1f °C]"
+        Chart item=Vienna_Temp service="influxdb" period=h refresh=30000
+    }
+
+    Frame label="Medication Taken Log (Touch Sensor ON)" {
+        Chart item=Sensor_Node_Touch_Sensor service="influxdb" period=4h refresh=30000
+    }
+}

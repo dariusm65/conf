@@ -1,0 +1,7 @@
+Thing http:url:vienna_weather "Vienna Weather API" [ 
+    baseURL="https://api.open-meteo.com/v1/forecast?latitude=48.2085&longitude=16.3721&current_weather=true", 
+    refresh=300
+] {
+    Channels:
+        Type number : temperature "Temperature" [ stateTransformation="JSONPATH:$.current_weather.temperature" ]
+}

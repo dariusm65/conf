@@ -1,0 +1,39 @@
+rule "Medication Taken"
+when
+    Item Sensor_Node_Touch_Sensor changed to ON
+then
+    Buzzer_Node_Buzzer_Alarm.sendCommand(OFF)
+    Buzzer_Node_Red_Light.sendCommand(OFF)
+    
+    Buzzer_Node_Green_Light.sendCommand(ON)
+    
+    createTimer(now.plusSeconds(10), [ |
+        Buzzer_Node_Green_Light.sendCommand(OFF)
+    ])
+end
+
+rule "Temperature Warning"
+when
+    Item Vienna_Temp changed or System started
+then
+    if ((Vienna_Temp.state as Number) > 25) {
+        Buzzer_Node_Blue_Light.sendCommand(ON)
+        
+        Buzzer_Node_Buzzer_Alarm.sendCommand(ON)
+        createTimer(now.plusSeconds(6), [ |
+            Buzzer_Node_Buzzer_Alarm.sendCommand(OFF)
+        ])
+        
+    } else {
+        Buzzer_Node_Blue_Light.sendCommand(OFF)
+        Buzzer_Node_Buzzer_Alarm.sendCommand(OFF)
+    }
+end
+
+rule "Prevent Color Mix (Turn Off Blue)"
+when
+    Item Buzzer_Node_Red_Light changed to ON or
+    Item Buzzer_Node_Green_Light changed to ON
+then
+    Buzzer_Node_Blue_Light.sendCommand(OFF)
+end

@@ -1,0 +1,2 @@
+Thing network:pingdevice:buzzer_node "Buzzer Node Connection" [ hostname="192.168.1.159", refreshInterval=60000 ]
+Thing network:pingdevice:sensor_node "Sensor Node Connection" [ hostname="192.168.1.198", refreshInterval=60000 ]
